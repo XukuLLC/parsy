@@ -35,9 +35,9 @@ defmodule Parsy.Engine do
     def second_pass(data) do
         add_list = [~r/ia/, ~r/riet/, ~r/dien/, ~r/iu/, ~r/io/, ~r/ii/, ~r/[aeiouym]bl$/, ~r/[aeiou]{3}/, ~r/^mc/, ~r/ism$/, ~r/([^aeiouy])\1l$/, ~r/[^l]lien/, ~r/^coa[dglx]./, ~r/[^gq]ua[^auieo]/, ~r/dnt$/, ~r/ea$/]
         Map.put(data, :words,
-        Enum.map(data[:words], fn {word, parsed, split, count} ->
+        Enum.map(data[:words], fn {word, parsed, split, count}   ->
         {word, parsed, split, count + (Enum.map([parsed], fn hit ->
-        Enum.count(add_list, fn regex                          ->
+        Enum.count(add_list, fn regex                            ->
         Regex.match?(regex, hit) end) end) |> Enum.sum)
         } end))
     end
@@ -45,17 +45,17 @@ defmodule Parsy.Engine do
     def third_pass(data) do
         subtract_list = [~r/cial/, ~r/tia/, ~r/cius/, ~r/cious/, ~r/giu/, ~r/ion/, ~r/sia$/, ~r/.ely$/]
         Map.put(data, :words, 
-        Enum.map(data[:words], fn {word, parsed, split, count} ->
-        {word, parsed, split, (Enum.map([word], fn hit         -> 
-        count - Enum.count(subtract_list, fn regex             -> 
+        Enum.map(data[:words], fn {word, parsed, split, count}  ->
+        {word, parsed, split, (Enum.map([word], fn hit          -> 
+        count - Enum.count(subtract_list, fn regex              -> 
         Regex.match?(regex, hit) end) end)) |> Enum.sum
         } end))
     end
 
-    # adds syllable count for scenarios like "I" "x", "the" (becomes "th" when parsed), and "crwth"
+    # adds syllable count for scenarios like "x", "the" (becomes "th" when parsed), and "crwth"
     def fourth_pass(data) do
         Map.put(data, :words,
-        Enum.map(data[:words], fn {word, parsed, split, count} ->
+        Enum.map(data[:words], fn {word, parsed, split, count}  ->
         {word, parsed, split, count + zero_match(count)} end))
     end
 
@@ -91,6 +91,6 @@ defmodule Parsy.Engine do
     end
     
     def flesch_kincaid(data) do
-    Map.put(data, :flesch_kincaid, 206.835 - (1.015 * (data[:word_count]/data[:sent_count])) - (84.6 * (data[:syl_count]/data[:word_count])))
+        Map.put(data, :flesch_kincaid, 206.835 - (1.015 * (data[:word_count]/data[:sent_count])) - (84.6 * (data[:syl_count]/data[:word_count])))
     end
   end

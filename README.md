@@ -18,7 +18,7 @@ end
 
 ### Using the Module
 
-[View the official documentation on Hex Docs for detailed instructions](hexdocs.pm/parsy/0.1.0/parsy.html).
+[View the official documentation on Hex Docs for detailed instructions](https://hexdocs.pm/parsy/0.1.0/parsy.html).
 
 ### Using the API
 

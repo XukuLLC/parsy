@@ -26,7 +26,7 @@ You can receive truncated results (5 of the 8 datapoints) using [the Sprigg API]
 
 Sprigg maintains a single route: https://api.spri.gg/
 
-To analyze your text, pass it into the body of a POST request.
+To analyze your text, pass it into the body of a `POST` request.
 
 Here are some example commands:
 

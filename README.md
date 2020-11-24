@@ -14,28 +14,33 @@ def deps do
 end
 ```
 
-<!-- ## How To Use the Syllabify Module
+## Usage
 
-You can call the `main` function or you can call the API.
+### Using the Module
 
-To call the module directly, use the entrypoint `Parsy.main/1`. This will return a map with eight key/value pairs.
+[View the official documentation on Hex Docs for detailed instructions](hexdocs.pm/parsy/0.1.0/parsy.html).
 
-See the module documentation for usage details.
+### Using the API
 
-To call the module via the API, send your text in the body of POST request to `https://api.spri.gg`. This will return a map with identical values to `Parsy.main/1` but in JSON format.
+You can receive truncated results (5 of the 8 datapoints) using the Sprigg API.
 
-**Note:** Passing a large text to the API can result in a large and cumbersome output. To drop the three largest values&mdash;`text`, `words`, and `complex`&mdash;before returning your JSON, use the `https://api.spri.gg/counts` route instead.
+Sprigg maintains a single route: https://api.spri.gg/
 
-For example, here we are downloading the unabridge copy of Moby Dick from Project Gutenberg and passing it to `api.spri.gg/counts`:
+To analyze your text, pass it into the body of a POST request.
+
+Here are some example commands:
 
 ```bash
-curl moby dick here to 
+
+curl -X POST -d "analyze this string" https://api.spri.gg
+
+# to read in a local file:
+
+curl -X POST --data-binary "@/path/to/file.md" https://api.spri.gg
+
+# to pass STDIN, like this digital copy of Moby Dick:
+
+curl http://www.gutenberg.org/files/2701/2701-0.txt | curl -X POST -d "@-" https://api.spri.gg
 ```
 
-If we hadn't, `STDOUT` would have become glutted with the larger values.
-
-Redirecting your results to a file is another quick solution:
-
-```bash
-curl moby dick to spri.gg to file
-``` -->
+A `GET` request to `/` will return these instructions.

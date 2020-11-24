@@ -48,7 +48,7 @@ defmodule Parsy.Engine do
         Enum.map(data[:words], fn {word, parsed, split, count}  ->
         {word, parsed, split, (Enum.map([word], fn hit          -> 
         count - Enum.count(subtract_list, fn regex              -> 
-        Regex.match?(regex, hit) end) end)) |> Enum.sum
+        Regex.match?(regex, hit) end) end) |> Enum.sum)
         } end))
     end
 

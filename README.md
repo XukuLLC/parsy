@@ -22,7 +22,7 @@ end
 
 ### Using the API
 
-You can receive truncated results (5 of the 8 datapoints) using the Sprigg API.
+You can receive truncated results (5 of the 8 datapoints) using [the Sprigg API](https://github.com/zuchka/sprigg).
 
 Sprigg maintains a single route: https://api.spri.gg/
 

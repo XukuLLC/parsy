@@ -38,7 +38,7 @@ curl -X POST -d "analyze this string" https://api.spri.gg
 
 curl -X POST --data-binary "@/path/to/file.md" https://api.spri.gg
 
-# to pass STDIN, like this digital copy of Moby Dick:
+# to pass STDIN, like this unabridged copy of Moby Dick:
 
 curl http://www.gutenberg.org/files/2701/2701-0.txt | curl -X POST -d "@-" https://api.spri.gg
 ```

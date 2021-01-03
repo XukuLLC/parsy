@@ -4,8 +4,8 @@ defmodule Parsy.MixProject do
   def project do
     [
       app: :parsy,
-      version: "0.1.0",
-      elixir: "~> 1.11",
+      version: "0.1.1",
+      elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: "The `Parsy` module parses and counts syllables, words, complex words, and sentences in the English language. It also calculates the Flesch-Kincaid Readability Score for the given text.",
@@ -34,6 +34,8 @@ defmodule Parsy.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.22", only: :dev, runtime: false},
+      {:benchee, "~> 1.0", only: :dev},
+      {:poolboy, "~> 1.5.1"},
     ]
   end
 

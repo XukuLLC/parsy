@@ -98,14 +98,18 @@ A Flesch-Kincaid Score of `60` or higher is an ideal goal for general web conten
 alias Parsy.Engine
 
   def main(data) do
+    # parallel =
     data
-    |> Engine.parse_words()
-    |> Engine.parse_syls()
-    |> Engine.syl_count()
-    |> Engine.word_count()
-    |> Engine.sent_count()
-    |> Engine.complex()
-    |> Engine.complex_count()
-    |> Engine.flesch_kincaid()
+    |> Parsy.Syllabify.main()
+    # |> IO.puts()
+
+    # sequential =
+    # data
+    # |> Engine.word_count()
+    # |> Engine.sent_count()
+    # |> Engine.complex()
+    # |> Engine.complex_count()
+    # |> Engine.flesch_kincaid()
+    # |> IO.puts()
   end
 end

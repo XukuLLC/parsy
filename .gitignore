@@ -25,3 +25,6 @@ parsy-*.tar
 
 # Temporary files for e.g. tests
 /tmp
+
+# test file
+moby.txt

@@ -95,21 +95,24 @@ A Flesch-Kincaid Score of `60` or higher is an ideal goal for general web conten
 """
 @doc since: "0.1.0"
 
-alias Parsy.Engine
+# alias Parsy.Engine
 
   def main(data) do
-    # parallel =
+    parallel =
     data
     |> Parsy.Syllabify.main()
-    # |> IO.puts()
+    
+    results =
+    Map.new
+    # |> Map.put(:results, parallel)
+    |> Map.put(:words, Enum.flat_map(parallel, fn map -> map[:words] end) |> Enum.map(fn {a, _b, _c, d} -> {a, d} end))
+    |> Map.put(:syl_count, Enum.map(parallel, fn map -> map[:syl_count] end) |> Enum.sum)
+    |> Map.put(
+      :complex, Enum.flat_map(parallel, fn map -> map[:words] end) |> Enum.filter(fn {_word, _parsed, _split, count} -> count > 2 end)
+      |> Enum.map(fn {word, _parsed, _split, count} -> [word, count] end)
+      )
 
-    # sequential =
-    # data
-    # |> Engine.word_count()
-    # |> Engine.sent_count()
-    # |> Engine.complex()
-    # |> Engine.complex_count()
-    # |> Engine.flesch_kincaid()
-    # |> IO.puts()
+    results
+    |> Map.put(:complex_count, Enum.count(results[:complex]))  
   end
 end

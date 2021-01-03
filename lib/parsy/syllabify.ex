@@ -5,7 +5,7 @@ defmodule Parsy.Syllabify do
     list =
     String.split(data, ~r{\W}, trim: true)
     |> Stream.filter(fn x -> String.valid?(x)end)
-    |> Stream.chunk_every(20)
+    |> Stream.chunk_every(250)
     |> Enum.map(fn x -> Enum.join(x, " ")end)
 
     list

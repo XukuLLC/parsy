@@ -7,7 +7,7 @@ defmodule Parsy.Application do
     [
       name: {:local, :worker},
       worker_module: Parsy.Worker,
-      size: 10,
+      size: 12,
       max_overflow: 2
     ]
   end

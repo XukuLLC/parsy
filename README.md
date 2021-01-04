@@ -5,6 +5,7 @@
 - `:syl_count`
 - `:words`
 - `:complex_words`
+- `:complex_count`
 
 ## Installation
 
@@ -23,7 +24,7 @@ end
 Pass a string to `Parsy.main()`. Here is an example:
 
 ```
-iex>
+iex> Parsy.main(")
 ```
 
 ### Using the Module

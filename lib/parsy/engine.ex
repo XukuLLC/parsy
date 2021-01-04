@@ -16,10 +16,10 @@ defmodule Parsy.Engine do
     Map.put(data, :words, Enum.zip(String.split(data[:text], ~r{\w+}, trim: true, include_captures: true)
     |> Enum.filter(fn word -> Regex.match?(~r/[a-zA-Z]/, word)end)
     |> Enum.map(fn word -> String.downcase(word)end)
-    |> Enum.map(fn word -> String.replace_trailing(word, "e", "") end)
-    |> Enum.map(fn word -> Regex.replace(~r/(?<=\w)'(?=\w)/, word, "") end),
+    |> Enum.map(fn word -> String.replace_trailing(word, "e", "") end),
     String.split(data[:text], ~r{\w+}, trim: true, include_captures: true)
-    |> Enum.filter(fn word -> Regex.match?(~r/[a-zA-Z]/, word)end)))
+    |> Enum.filter(fn word -> Regex.match?(~r/[a-zA-Z]/, word)end))
+    )
   end
 
   def parse_syls(data) do

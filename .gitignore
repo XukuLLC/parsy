@@ -28,3 +28,10 @@ parsy-*.tar
 
 # test file
 moby.txt
+
+# benchmark file
+benchmark.exs
+
+# gitignore
+.gitignore
+

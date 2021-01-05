@@ -14,7 +14,7 @@ If [available in Hex](https://hex.pm/docs/publish), add `parsy` to your list of 
 ```elixir
 def deps do
   [
-    {:parsy, "~> 0.1.0"}
+    {:parsy, "~> 0.1.2"}
   ]
 end
 ```

@@ -3,7 +3,7 @@
 `Parsy` is a fast syllable-parser for English-language strings. It implements a standard algorithm and runs in parallel, making it an efficient and reliable solution for text-processing. `Parsy` accepts a `string` and returns a map with the following values:
 
 - `:syl_count`: an integer. The total number of syllables in `string`
-- `:words`: a list of tuples. Each word in `string` and its individual `:syl_count`
+- `:words`: a list of lists. Each word in `string` and its individual `:syl_count`
 - `:complex_words`: a list of lists. Each complex word in `string` and its individual `:syl_count`. In English, a complex word is any word with three or more syllables. This value is often used to calculate readability scores.
 - `:complex_count`: an integer. The total number of `complex_words` in `string`.
 
@@ -14,7 +14,7 @@ If [available in Hex](https://hex.pm/docs/publish), add `parsy` to your list of 
 ```elixir
 def deps do
   [
-    {:parsy, "~> 0.1.2"}
+    {:parsy, "~> 0.1.4"}
   ]
 end
 ```

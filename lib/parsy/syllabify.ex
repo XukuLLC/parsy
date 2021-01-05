@@ -18,7 +18,7 @@ defmodule Parsy.Syllabify do
   def async_call_syllabify(chunk_of_words) do
     Task.async(fn ->
       :poolboy.transaction(
-        :worker,
+        :parsy_worker,
         fn pid -> GenServer.call(pid, {:syllabify, chunk_of_words}, 600000) end,
         @timeout
       )

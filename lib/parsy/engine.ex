@@ -67,7 +67,8 @@ defmodule Parsy.Engine do
   def fourth_pass(data) do
     Map.put(data, :words,
     Enum.map(data[:words], fn {word, parsed, split, count}  ->
-    {word, parsed, split, count + zero_match(count)} end))
+    [word, parsed, split, count + zero_match(count)] end)
+    )
   end
 
   def zero_match(0) do
@@ -79,6 +80,6 @@ defmodule Parsy.Engine do
   end
 
   def syl_total(data) do
-    Map.put(data, :syl_count, Enum.map(data[:words], fn {_word, _parsed, _split, count} -> count end) |> Enum.sum())
+    Map.put(data, :syl_count, Enum.map(data[:words], fn [_word, _parsed, _split, count] -> count end) |> Enum.sum())
   end
 end

@@ -5,7 +5,7 @@ defmodule Parsy.Application do
 
   defp poolboy_config do
     [
-      name: {:local, :worker},
+      name: {:local, :parsy_worker},
       worker_module: Parsy.Worker,
       size: 12,
       max_overflow: 2
@@ -14,7 +14,7 @@ defmodule Parsy.Application do
 
   def start(_type, _args) do
     children = [
-      :poolboy.child_spec(:worker, poolboy_config())
+      :poolboy.child_spec(:parsy_worker, poolboy_config())
     ]
 
     opts = [strategy: :one_for_one, name: Parsy.Supervisor]

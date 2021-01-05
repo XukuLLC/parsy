@@ -1,5 +1,6 @@
 defmodule Parsy.Syllabify do
-    @timeout 1000000
+  @moduledoc false
+  @timeout 1000000
 
   def main(data) do
     list =

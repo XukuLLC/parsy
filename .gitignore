@@ -22,15 +22,8 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 parsy-*.tar
 
-
 # Temporary files for e.g. tests
 /tmp
-
-# test file
-moby.txt
-
-# benchmark file
-benchmark.exs
 
 # gitignore
 .gitignore

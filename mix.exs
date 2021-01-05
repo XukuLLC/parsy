@@ -8,13 +8,13 @@ defmodule Parsy.MixProject do
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      description: "The `Parsy` module parses and counts syllables, words, complex words, and sentences in the English language. It also calculates the Flesch-Kincaid Readability Score for the given text.",
+      description: "A fast syllable-parser for English-language strings",
       package: package(),
 
       # Docs
       name: "Parsy",
       source_url: "https://github.com/zuchka/parsy.git",
-      homepage_url: "http://zuchka.dev",
+      homepage_url: "https://github.com/zuchka/parsy",
       docs: [api_reference: false,
             # logo: "path/to/logo.png",
              extras:        ["README.md"],

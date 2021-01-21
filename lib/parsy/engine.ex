@@ -7,9 +7,9 @@ defmodule Parsy.Engine do
     |> Map.put(:text, chunk_of_words)
 
     parsy
-    |> Parsy.Engine.parse_words()
-    |> Parsy.Engine.parse_syls()
-    |> Parsy.Engine.syl_count()
+    |> parse_words()
+    |> parse_syls()
+    |> syl_count()
   end
 
   def parse_words(data) do

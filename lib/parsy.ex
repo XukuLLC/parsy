@@ -49,6 +49,8 @@ Once the computation completes, `Parsy` returns a map:
     |> Map.put(:words, Enum.flat_map(parallel, fn map -> map[:words]    end)
       |> Enum.map(fn [a, _b, _c, d] -> [a, d]                           end))
     |> Map.put(:syl_count, Enum.map(parallel, fn map -> map[:syl_count] end) |> Enum.sum)
+    |> Map.put(:text, Enum.map(parallel, fn map -> map[:text]           end)
+      |> Enum.join(" "))
     |> Map.put(:complex, Enum.flat_map(parallel, fn map -> map[:words]  end)
       |> Enum.filter(fn [_word, _parsed, _split, count] -> count > 2    end)
       |> Enum.map(fn [word, _parsed, _split, count] -> [word, count]    end))

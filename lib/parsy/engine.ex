@@ -63,7 +63,7 @@ defmodule Parsy.Engine do
     } end))
   end
 
-  # adds syllable count for zero-word scenarios like "x", "the" (becomes "th" when parsed), and "crwth"
+  # adds syllable count for zero-syllable scenarios like "x", "the" (becomes "th" when parsed), and "crwth"
   def fourth_pass(data) do
     Map.put(data, :words,
     Enum.map(data[:words], fn {word, parsed, split, count}  ->

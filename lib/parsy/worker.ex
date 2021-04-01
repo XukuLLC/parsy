@@ -11,7 +11,7 @@ defmodule Parsy.Worker do
   end
 
   def handle_call({:syllabify, chunk_of_words}, from, state) do
-    IO.puts("process #{inspect(self())}: syllabifying \"#{inspect(from)}\"")
+    Parsy.Logger.log("process #{inspect(self())}: syllabifying \"#{inspect(from)}\"")
     {:reply, Parsy.Engine.syllabify(chunk_of_words), state}
   end
 end
